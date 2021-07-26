@@ -1,5 +1,5 @@
 import turtle
-import os
+import winsound
 
 wn = turtle.Screen()
 wn.title("Pong by 97hdz")
@@ -86,17 +86,16 @@ while True:
     ball.sety(ball.ycor() + ball.dy)
 
     # Border checking
-
     # Top and bottom
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
-        os.system("afplay bounce.wav&")
+        winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
 
     elif ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
-        os.system("afplay bounce.wav&")
+        winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
 
     # Left and right
     if ball.xcor() > 350:
@@ -116,8 +115,8 @@ while True:
     # Paddle and ball collisions
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+        winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
 
     elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
         ball.dx *= -1
-        os.system("afplay bounce.wav&")
+        winsound.PlaySound('bounce.wav', winsound.SND_ASYNC)
